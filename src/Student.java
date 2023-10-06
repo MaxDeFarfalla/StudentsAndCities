@@ -7,7 +7,46 @@ public class Student {
 
     //Constr
     public String reportBuddyName(){
-        return;
+        return buddy.name;
     }
 
+    public Student(int studentId,String name,City hometown){
+        this.studentId = studentId;
+        this.name= name;
+        this.hometown = hometown;
+    }
+
+    //Getters & setters
+
+    public Student getBuddy() {
+        return buddy;
+    }
+
+    public void setBuddy(Student buddy) {
+        this.buddy = buddy;
+    }
+
+    public City getHometown() {
+        return hometown;
+    }
+
+    public void setHometown(City hometown) {
+        this.hometown = hometown;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 }
