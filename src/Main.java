@@ -17,16 +17,17 @@ public class Main {
         students.get("max").setBuddy(students.get("erik"));
         System.out.println(students.get("max").getBuddy().getName());
         System.out.println(students);
+        boolean cont = true;
         do {
-            boolean cont = true;
+
             addStudent(students);
             System.out.println("Enter additional Students? yes/no");
             Scanner myScan = new Scanner(System.in);
             String answer = myScan.nextLine();
             if (answer != "yes") {
-
+                cont = false;
             }
-        }while ();
+        }while (cont);
 
 
     }
