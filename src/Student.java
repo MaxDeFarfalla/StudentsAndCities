@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 public class Student {
 //Attr
+
     private Student buddy;
     private City hometown;
     private String name;

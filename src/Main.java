@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
 
        HashMap<String, Student> students = new HashMap<String, Student>();
 
@@ -12,19 +11,21 @@ public class Main {
       City stockholm = new City("Sweden","Stockholm");
 
 
-        students.put("max", new Student(1,"max",stockholm));
-        students.put("erik", new Student(2,"Erik",stockholm));
-        students.get("max").setBuddy(students.get("erik"));
-        System.out.println(students.get("max").getBuddy().getName());
+        students.put("Max", new Student(students.size(),"Max",stockholm));
+        students.put("Erik", new Student(students.size(),"Erik",stockholm));
+        students.get("Max").setBuddy(students.get("Erik"));
+        System.out.println(students.get("Max").getBuddy().getName());
         System.out.println(students);
         boolean cont = true;
-        do {
+        //
 
+        do {
+        //Adds new Students to hashmap of Students
             addStudent(students);
             System.out.println("Enter additional Students? yes/no");
             Scanner myScan = new Scanner(System.in);
-            String answer = myScan.nextLine();
-            if (answer != "yes") {
+            String answer = myScan.nextLine().toLowerCase();
+            if (!answer.equals("yes") && !answer.equals("y")) {
                 cont = false;
             }
         }while (cont);
@@ -32,7 +33,7 @@ public class Main {
 
     }
 
-    public static HashMap<String, Student> addStudent(HashMap<String, Student> students) {
+    private static HashMap<String, Student> addStudent(HashMap<String, Student> students) {
         Scanner myScan = new Scanner(System.in);
         System.out.println("Enter name:");
         String name = myScan.nextLine();
@@ -46,4 +47,8 @@ public class Main {
         System.out.println(Arrays.asList(students));
         return students;
     }
+
+
+
+
 }
