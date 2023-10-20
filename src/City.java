@@ -1,13 +1,16 @@
+import java.util.ArrayList;
+
 public class City {
 //Attr
     private String country;
-    private String name;
+    private String cityName;
+    private ArrayList<Student> residence;
 
     //Constr
 
-    public City(String country, String name){
+    public City(String country, String cityName){
         this.country = country;
-        this.name = name;
+        this.cityName = cityName;
     }
 
     //Getters
@@ -17,7 +20,7 @@ public class City {
         return country;
     }
 
-    public String getName() {
-        return this.name;
+    public String getCityName() {
+        return this.cityName;
     }
 }

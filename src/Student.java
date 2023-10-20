@@ -1,22 +1,37 @@
-import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.UUID;
 
 public class Student {
 //Attr
 
-    private Student buddy;
     private City hometown;
     private String name;
-    private int studentId;
+    private UUID studentID;
+    private Student buddy;
+    Scanner myScan = new Scanner(System.in);
 
     //Constr
     public String reportBuddyName(){
         return buddy.name;
     }
 
-    public Student(int studentId,String name,City hometown){
-        this.studentId = studentId;
+    public Student(String name,City hometown){
+        this.studentID = UUID.randomUUID();
         this.name= name;
         this.hometown = hometown;
+    }
+    public Student(){
+        System.out.println("Enter name:");
+        this.name = myScan.nextLine();
+        System.out.println("Pick city");
+
+
+      /*  System.out.println("Enter country of birth");
+        String country = myScan.nextLine();
+        System.out.println("Enter city of birth");
+        String city = myScan.nextLine();
+         */
+
     }
 
     //Getters & setters
@@ -45,11 +60,9 @@ public class Student {
         this.name = name;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public UUID getStudentID() {
+        return studentID;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
+
 }
