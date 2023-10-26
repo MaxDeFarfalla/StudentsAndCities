@@ -23,4 +23,12 @@ public class City {
     public String getCityName() {
         return this.cityName;
     }
+
+    public ArrayList<Student> getResidence() {
+        return residence;
+    }
+
+    public void setResidence(ArrayList<Student> residence) {
+        this.residence = residence;
+    }
 }

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class SAndC {
-    ArrayList<City> cities = new ArrayList<City>();
-    HashMap<String, Student> students = new HashMap<String, Student>();
+  private   ArrayList<City> cities = new ArrayList<>();
+   private HashMap<String, Student> students = new HashMap<String, Student>();
     public SAndC() {
         start();
     }
@@ -49,19 +49,47 @@ public class SAndC {
 
     }
 
-    private static HashMap<String, Student> addStudent(HashMap<String, Student> students) {
+    private HashMap<String, Student> addStudent(HashMap<String, Student> students) {
         Scanner myScan = new Scanner(System.in);
-        System.out.println("Enter name:");
+
+
+       System.out.print("Enter name:");
         String name = myScan.nextLine();
-        System.out.println("Enter country of birth");
+
+
+        /*System.out.println("Enter country of birth");
         String country = myScan.nextLine();
         System.out.println("Enter city of birth");
-        String city = myScan.nextLine();
-        students.put(name, new Student(name, new City(country, city)));
+        String city = myScan.nextLine();*/
+        // Get input for hometown and verify existence take hometown from cities array
+
+        for (City hometown : cities) {
+            System.out.println(hometown.getCityName());
+        }
+
+        System.out.print("Select hometown:");
+
+        String hometownEntry = myScan.nextLine();
+
+
+
+        //students.put(name, new Student(name,hometown));
         System.out.println("New Student profile created");
+
         System.out.println(Arrays.asList(students));
         return students;
 
+    }
+
+    //Getters and setters
+
+
+    public HashMap<String, Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(HashMap<String, Student> students) {
+        this.students = students;
     }
 }
 
