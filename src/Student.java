@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -9,11 +10,13 @@ public class Student {
     private final UUID studentID;
     private Student buddy;
     Scanner myScan = new Scanner(System.in);
+    School sch;
 
     //Constr
 
 
-    public Student(String name,City hometown){
+    public Student(String name,City hometown, School sch){
+        this.sch= sch;
         this.studentID = UUID.randomUUID();
 
         this.name= name;
@@ -40,6 +43,11 @@ public class Student {
     }
 
     public void setHometown(City hometown) {
+        HashMap<String, City> cityHashMap =sch.getCityHashMap();
+        for (String i : cityHashMap.keySet()) {
+            System.out.println(i);
+        }
+
         this.hometown = hometown;
     }
 

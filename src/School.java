@@ -3,10 +3,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class SAndC {
-  private   ArrayList<City> cities = new ArrayList<>();
-   private HashMap<String, Student> students = new HashMap<String, Student>();
-    public SAndC() {
+public class School {
+  private ArrayList<City> cities = new ArrayList<>();
+   private HashMap<String, Student> students = new HashMap<>();
+
+   private HashMap<String, City> cityHashMap = new HashMap<>();
+    public School() {
         start();
     }
 
@@ -19,23 +21,24 @@ public class SAndC {
         City tokyo = new City("Japan", "Tokyo");
         City london = new City("UK", "London");
         City oslo = new City("Norway", "Oslo");
-        City stockholm = new City("Sweden", "Stockholm");
+
         cities.add(berlin);
-        cities.add(stockholm);
+
         cities.add(tokyo);
         cities.add(oslo);
         cities.add(london);
+        String name= "Gothenburg";
+        cityHashMap.put(name,new City("Sweden",name));
+        cityHashMap.put("Stockholm",new City("Sweden","Stockholm"));
 
-        students.put("Max", new Student("Max",stockholm));
-        students.put("Erik", new Student("Erik",stockholm));
+        students.put("Max", new Student("Max",cityHashMap.get("Stockholm"),this));
+        students.put("Erik", new Student("Erik",cityHashMap.get("Stockholm"), this));
         students.get("Max").setBuddy(students.get("Erik"));
         System.out.println(students.get("Max").getBuddy().getName());
         System.out.println(students);
         boolean cont = true;
 
-        do
-
-        {
+        do{
             //Adds new Students to hashmap of Students
             addStudent(students);
             System.out.println("Enter additional Students? yes/no");
@@ -76,6 +79,8 @@ public class SAndC {
         //students.put(name, new Student(name,hometown));
         System.out.println("New Student profile created");
 
+
+
         System.out.println(Arrays.asList(students));
         return students;
 
@@ -88,8 +93,8 @@ public class SAndC {
         return students;
     }
 
-    public void setStudents(HashMap<String, Student> students) {
-        this.students = students;
+    public HashMap<String, City> getCityHashMap() {
+        return cityHashMap;
     }
 }
 
