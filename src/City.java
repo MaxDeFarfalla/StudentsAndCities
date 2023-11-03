@@ -28,7 +28,7 @@ public class City {
         return residence;
     }
 
-    public void setResidence(ArrayList<Student> residence) {
+    public void setResidence(Student residence) {
         this.residence = residence;
     }
 }

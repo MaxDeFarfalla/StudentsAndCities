@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
+import java.util.function.BiConsumer;
 
 public class School {
   private ArrayList<City> cities = new ArrayList<>();
@@ -29,7 +27,9 @@ public class School {
         cities.add(london);
         String name= "Gothenburg";
         cityHashMap.put(name,new City("Sweden",name));
-        cityHashMap.put("Stockholm",new City("Sweden","Stockholm"));
+        name = "Stockholm";
+        cityHashMap.put(name,new City("Sweden",name));
+        System.out.println(cityHashMap);
 
         students.put("Max", new Student("Max",cityHashMap.get("Stockholm"),this));
         students.put("Erik", new Student("Erik",cityHashMap.get("Stockholm"), this));
@@ -66,8 +66,12 @@ public class School {
         String city = myScan.nextLine();*/
         // Get input for hometown and verify existence take hometown from cities array
 
-        for (City hometown : cities) {
+       /* for (City hometown : cities) {
             System.out.println(hometown.getCityName());
+        } */
+
+        for (Map.Entry<String,City> entry : cityHashMap.entrySet()){
+            System.out.println(entry.getKey() + ":" + entry.getValue());
         }
 
         System.out.print("Select hometown:");
@@ -75,11 +79,10 @@ public class School {
         String hometownEntry = myScan.nextLine();
 
 
-
-        //students.put(name, new Student(name,hometown));
+        students.put(name, new Student(name,cityHashMap.get(hometownEntry),this));
         System.out.println("New Student profile created");
 
-
+cityHashMap.get(hometownEntry).setResidence(students.get(name));
 
         System.out.println(Arrays.asList(students));
         return students;
