@@ -82,7 +82,7 @@ public class School {
         students.put(name, new Student(name,cityHashMap.get(hometownEntry),this));
         System.out.println("New Student profile created");
 
-cityHashMap.get(hometownEntry).setResidence(students.get(name));
+cityHashMap.get(hometownEntry).addResidence(students.get(name));
 
         System.out.println(Arrays.asList(students));
         return students;
